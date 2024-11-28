@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatsy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="H&F.CSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pIVbHvvj6jby6jdCkhglot1ywEoGq9U1WghRfJ0HNfB5cJdIJ8htdZBz6lBJ4slK6rLs0HtfP5e3g+0LxKkPiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Banner with background image */
+        .banner {
+            width: 100%;
+            height: 300px;
+            background-image: url('background1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        /* Breadcrumbs styling */
+        .breadcrumbs {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-top: 10px;
+        }
+
+        .breadcrumbs a {
+            text-decoration: none;
+            color: #cd1010;
+        }
+
+        .breadcrumbs span {
+            margin: 0 5px;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: none;
+            color: #fdc707;
+        }
+
+        /* Container for FAQ section */
+        .faq-section {
+            padding: 20px;
+        }
+
+        /* Styling for the FAQ labels */
+        .faq-heading {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .faq-arrow {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #cd1010;
+            margin-left: 10px;
+        }
+
+        .faq-heading {
+
+            font-weight: 400;
+            font-size: 19px;
+            -webkit-transition: text-indent 0.2s;
+            text-indent: 20px;
+            color: #cd1010;
+        }
+
+        .faq-text {
+
+            font-weight: 450;
+            color: #030303;
+            width: 95%;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .faq {
+            width: 1300px;
+            margin: 0 auto;
+            background-color: #ffeb3d;
+            border-radius: 4px;
+            position: relative;
+            border: 2px solid #cd1010;
+        }
+
+        .faq label {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            height: 10px;
+            padding-top: 1px;
+            background-color: transparent;
+            border-bottom: 0.8px solid #ff6b6b;
+        }
+
+        .faq input[type="checkbox"] {
+            display: none;
+        }
+
+        .faq .faq-arrow {
+            width: 5px;
+            height: 5px;
+            transition: -webkit-transform 0.8s;
+            transition: transform 0.8s;
+            transition: transform 0.8s, -webkit-transform 0.8s;
+            -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-top: 2px solid #cd1010;
+            border-right: 2px solid #cd1010;
+            float: right;
+            position: relative;
+            top: -30px;
+            right: 27px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .faq input[type="checkbox"]:checked+label>.faq-arrow {
+            transition: -webkit-transform 0.8s;
+            transition: transform 0.8s;
+            transition: transform 0.8s, -webkit-transform 0.8s;
+            -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+        }
+
+        .faq input[type="checkbox"]:checked+label {
+            display: block;
+            background: rgba(255, 255, 255, 255) !important;
+            color: #fdc707;
+            height: 150px;
+            transition: height 0.8s;
+            -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .faq input[type='checkbox']:not(:checked)+label {
+            display: block;
+            transition: height 0.8s;
+            height: 60px;
+            -webkit-transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        /* ::-webkit-scrollbar {
+            display: none;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <span>
+            Opening hours: Monday - Friday: 8AM-11PM
+        </span>
+
+    </div>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img alt="Logo" height="60" src="logo-removebg-preview.png" width="40" />
+            </a>
+            <div>
+                <h1>
+                    Eatsy
+                </h1>
+                <p>
+                    ONE STOP STORE
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-map-marker-alt"></i> 523 AVENUE, 5th FLOOR, MOULALI, TG 94041 HYDERABAD
+            </p>
+        </div>
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-phone"></i> +91 9876543210
+            </p>
+        </div>
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-envelope"></i> info@EATSY.COM
+            </p>
+        </div>
+    </div>
+
+    </div>
+    <div class="nav-bar">
+        <a href="index.html">
+            HOME
+        </a>
+        <a href="products.html">
+            PRODUCTS
+        </a>
+        <a href="about.html">
+            ABOUT US
+        </a>
+        <a href="faq.html">
+            FAQ
+        </a>
+        <a href="contact.html">
+            CONTACT US
+        </a>
+        <!-- <a href="">
+         SHOP NOW
+        </a> -->
+        <div class="header-icons">
+
+            <a href="cart.html" class="icon" aria-label="Shopping Cart">
+                <i class="fas fa-shopping-cart"></i>
+
+            </a>
+
+            <a href="profile.html" class="icon" aria-label="User Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+
+    </div>
+    <!-- header end -->
+
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <h1>Frequently Asked Questions</h1>
+        <br>
+        <br>
+        <!--Breadcrumbs Section -->
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> <span>/</span> FAQ
+        </div>
+    </div><br>
+    <!--    Banner section end -->
+
+    <!-- faq start -->
+    <div class='faq'>
+        <input id='faq-a' type='checkbox'>
+        <label for='faq-a'>
+            <p class="faq-heading">Is this grocery store upgrade safe?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">Yes, it is completely safe and legal! There is no record of your transactions or changes
+                to your personal details while upgrading your store benefits.</p>
+        </label>
+
+        <input id='faq-b' type='checkbox'>
+        <label for='faq-b'>
+            <p class="faq-heading">How long does it take to upgrade my grocery store membership?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">Upgrading is a gradual process and will take around 3-10 days. <strong>In order to
+                    ensure a smooth and secure transition, we process the upgrade step by step.</strong> During this
+                time, you can continue to shop and use your account as usual.</p>
+        </label>
+
+        <input id='faq-c' type='checkbox'>
+        <label for='faq-c'>
+            <p class="faq-heading">What do you need to upgrade my grocery membership?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">No access to your personal account or information is required! All we need from you is
+                your grocery store referral link.</p>
+        </label>
+
+        <input id='faq-d' type='checkbox'>
+        <label for='faq-d'>
+            <p class="faq-heading">Where can I find my personal grocery store referral link?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">Log in to your grocery store account and go to the referral section:
+                www.Eatsystore.com/referral. Copy your referral link (example link:
+                <strong>https://Eatsy.store/referral/123450</strong>) and send it to us via the provided communication
+                method.
+            </p>
+        </label>
+
+        <input id='faq-e' type='checkbox'>
+        <label for='faq-e'>
+            <p class="faq-heading">Can I split the purchased store benefits between several family members?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">Yes, you can! Just send us all the referral links during the checkout process, including
+                a short note on which benefits should go to which family member’s account.</p>
+        </label>
+
+        <input id='faq-f' type='checkbox'>
+        <label for='faq-f'>
+            <p class="faq-heading">What’s the best way to store fresh produce?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">To keep your produce fresh, store fruits and vegetables in the fridge or in a cool, dry
+                place, depending on the type. For greens, use a produce drawer, and for apples, place them in a separate
+                crisper drawer to avoid ethylene gas.</p>
+        </label>
+
+        <input id='faq-g' type='checkbox'>
+        <label for='faq-g'>
+            <p class="faq-heading">Can I buy groceries online from your store?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">Yes! We offer an easy online grocery shopping experience with home delivery and pick-up
+                options. Just log into your account, select your items, and choose your preferred delivery method.</p>
+        </label>
+
+        <input id='faq-h' type='checkbox'>
+        <label for='faq-h'>
+            <p class="faq-heading">What payment methods do you accept for grocery purchases?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">We accept a variety of payment methods including credit cards, debit cards, and online
+                payment platforms like PayPal,phonepe. We also offer cash-on-delivery in select areas.</p>
+        </label>
+
+        <input id='faq-i' type='checkbox'>
+        <label for='faq-i'>
+            <p class="faq-heading">Do you offer any discounts or loyalty programs?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">Yes, we offer regular discounts and special promotions. Additionally, our loyalty
+                program allows you to earn points for every purchase, which can be redeemed for discounts on future
+                orders.</p>
+        </label>
+
+        <input id='faq-j' type='checkbox'>
+        <label for='faq-j'>
+            <p class="faq-heading">How can I contact customer support if I need help?</p>
+            <div class='faq-arrow'></div>
+            <p class="faq-text">You can contact our customer support team through email, live chat, or by phone. Visit
+                our "Contact Us" page for full details on how to reach us, or feel free to drop us a message via our
+                website!</p>
+        </label>
+
+    </div><br>
+    <!-- faq container end   -->
+
+    <!-- footer start here -->
+    <div class="footer">
+        <div class="container">
+            <div class="column">
+                <h3>
+                    VISIT US
+                </h3>
+                <p>
+                    <i class="fas fa-map-marker-alt">
+                    </i>
+                    523 Avenue, 5th Floor
+                    <br />
+                    Molali, TG 94041 Hyderabad
+                </p>
+                <p>
+                    <i class="fas fa-clock">
+                    </i>
+                    Mon-Fri: 08:00am - 11:00pm
+                    <br />
+
+            </div>
+            <div class="column">
+                <h3>
+                    QUICK LINKS
+                </h3>
+
+                <p>
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+                </p>
+
+
+
+                <p>
+                    <a href="products.html">
+                        Products
+                    </a>
+                </p>
+                <p>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </p>
+
+
+            </div>
+            <div class="column">
+                <h3>
+                    GET IN TOUCH
+                </h3>
+                <p>
+                    We are always ready to answer any questions you may have or help you select organic fruits.
+                </p>
+                <div class="buttons">
+                    <a class="shop-now" href="products.html">
+                        SHOP NOW
+                    </a>
+                    <a class="contact-us" href="contact.html">
+                        CONTACT US
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <!-- <div>
+          <img alt="Visa logo" height="20" src="https://storage.googleapis.com/a1aa/image/B2erIFeoLWpR8EbfCjscY5vpzZgUfsIgrIFQDWqIvD6LSP2OB.jpg" width="40"/>
+          <img alt="MasterCard logo" height="20" src="https://storage.googleapis.com/a1aa/image/Z6aEPr3ranrcH9OBGEkfOFwio3oJ117glRFInbVeKHVh0jtTA.jpg" width="40"/>
+          <img alt="PayPal logo" height="20" src="https://storage.googleapis.com/a1aa/image/0TUDxxajnyLzJhortmXX3n9Z0SclO0xClvMO1wJ9yRKI9Y7E.jpg" width="40"/>
+         </div> -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/YourPage" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.twitter.com/YourPage" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/YourPage" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://plus.google.com/YourPage" target="_blank" aria-label="Google Plus">
+                    <i class="fab fa-google-plus-g"></i>
+                </a>
+
+            </div>
+
+            <p>
+                © 2024 Eatsy. All rights reserved.
+                <a>
+                    Privacy Policy
+                </a>
+                .
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

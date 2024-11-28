@@ -1,0 +1,177 @@
+* {
+    /* overflow-x: hidden; */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+    /* Allow items to wrap */
+}
+
+.form-section,
+.summary-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
+    min-width: 300px;
+}
+
+.form-section {
+    flex: 2;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #cd1010;
+    padding-bottom: 10px;
+    color: #cd1010;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-container i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select {
+    width: 85%;
+    /* Full width minus padding */
+    padding: 12px 36px;
+    margin-bottom: 10px;
+    border: 1px solid #cd1010;
+    border-radius: 4px;
+    background-color: #fafafa;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: #0070c9;
+}
+
+.btn {
+    background-color: #cd1010;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #d63c3c;
+}
+
+.summary-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#card-expiry,
+#card-cvv {
+    width: calc(80% - 40px);
+    /* Full width minus padding */
+}
+
+.payment-method-dropdown {
+    width: calc(100% - 40px);
+    /* Full width minus padding */
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 22px;
+        /* Adjust heading size */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select {
+        width: 100%;
+        /* Full width for mobile */
+        padding: 12px;
+        /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+        /* Further adjust heading size */
+    }
+
+    .btn {
+        font-size: 14px;
+        /* Smaller button text */
+        padding: 12px;
+        /* Adjust button padding */
+    }
+}
+
+/* Modal styling */
+#successModal {
+    display: none;
+    /* Hide initially */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#successModal .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}

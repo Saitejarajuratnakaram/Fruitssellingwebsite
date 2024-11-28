@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Eatsy
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pIVbHvvj6jby6jdCkhglot1ywEoGq9U1WghRfJ0HNfB5cJdIJ8htdZBz6lBJ4slK6rLs0HtfP5e3g+0LxKkPiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .top-bar {
+            background-color: #cd1010;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar span {
+            font-size: 14px;
+        }
+
+        .top-bar .cart {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar .cart i {
+            margin-right: 5px;
+        }
+
+        .header {
+            background-color: #ffeb3d;
+            padding: 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 63px;
+            margin-right: 10px;
+            width: 63px;
+        }
+
+        .header .logo h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: bold;
+            color: #510707;
+        }
+
+        .header .logo p {
+            margin: 0;
+            font-size: 12px;
+            color: #180b0b;
+        }
+
+        .contact-info {
+
+            /* flex-direction: column; */
+            gap: 8px;
+            /* Space between items */
+            font-size: 1em;
+            color: #333;
+        }
+
+        .contact-info p {
+
+            align-items: center;
+            gap: 10px;
+            /* Space between icon and text */
+            margin: 0;
+        }
+
+        .contact-info i {
+            color: #cd1010;
+            /* Icon color */
+            font-size: 1.2em;
+            /* Adjust icon size as needed */
+        }
+
+        .nav-bar {
+            background-color: #cd1010;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin-left: 98px;
+
+            border-radius: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 10px;
+            padding: 5px 10px;
+        }
+
+        .nav-bar a:hover {
+            color: #f0c040;
+        }
+
+
+        .footer {
+            background-color: #FDC707;
+            color: #0a0606;
+            padding: 40px 0;
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #180f0f;
+        }
+
+        .footer h3::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: #cd1010;
+            margin-top: 10px;
+        }
+
+        .footer p,
+        .footer a {
+            color: #000000;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            text-decoration: none;
+        }
+
+        .footer .column {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .footer .column i {
+            margin-right: 10px;
+        }
+
+        .footer .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .footer .social-icons a {
+            color: #cc2d2d;
+            font-size: 20px;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer .bottom-bar {
+
+
+            text-align: center;
+            font-size: 14px;
+            color: #bfbfbf;
+        }
+
+        .footer .bottom-bar img {
+            margin: 0 5px;
+        }
+
+        .footer .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer .buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer .buttons .shop-now {
+            background-color: #000000;
+        }
+
+        .footer .buttons .contact-us {
+            background-color: #cd1010;
+        }
+
+        .shop-container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .shop-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .shop-header a {
+            color: #ff3e3e;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .category-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .category-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(240, 96, 96, 0.7);
+            width: calc(25% - 20px);
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .category-item img {
+            max-width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+
+        .category-item p {
+            font-size: 20px;
+            color: #333;
+            margin: 0;
+        }
+    </style>
+
+<body>
+    <div class="top-bar">
+        <span>
+            Opening hours: Monday - Friday: 8AM-11PM
+        </span>
+
+    </div>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img alt="Logo" height="60" src="logo-removebg-preview.png" width="40" />
+            </a>
+            <div>
+                <h1>
+                    Eatsy
+                </h1>
+                <p>
+                    ONE STOP STORE
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-map-marker-alt"></i> 523 AVENUE, 5th FLOOR, MOULALI, TG 94041 HYDERABAD
+            </p>
+        </div>
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-phone"></i> +91 9876543210
+            </p>
+        </div>
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-envelope"></i> info@EATSY.COM
+            </p>
+        </div>
+    </div>
+
+    </div>
+    <div class="nav-bar">
+        <a href="index.html">
+            HOME
+        </a>
+        <a href="products.html">
+            PRODUCTS
+        </a>
+        <a href="about.html">
+            ABOUT US
+        </a>
+        <a href="faq.html">
+            FAQ
+        </a>
+        <a href="contact.html">
+            CONTACT US
+        </a>
+        <!-- <a href="">
+    SHOP NOW
+   </a> -->
+        <div class="header-icons">
+
+            <a href="cart.html" class="icon" aria-label="Shopping Cart">
+                <i class="fas fa-shopping-cart"></i>
+
+            </a>
+
+            <a href="profile.html" class="icon" aria-label="User Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="shop-container">
+        <div class="shop-header">
+            <h1>
+                Meat & SeaFood
+            </h1>
+            <a href="products.html">
+                View all
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+        <div class="category-list">
+            <a class="category-item" href="p85.html">
+                <img alt="Dairy, Bread & Eggs" src="p85.jpg" />
+                <p>Chicken (Whole)</p>
+            </a>
+            <a class="category-item" href="p86.html">
+                <img alt="Snack & Munchies" src="p86.jpg" />
+                <p>Chicken Breast</p>
+            </a>
+            <a class="category-item" href="p87.html">
+                <img alt="Bakery & Biscuits" src="p87.jpg" />
+                <p>Mutton (Goat Meat)</p>
+            </a>
+            <a class="category-item" href="p88.html">
+                <img alt="Instant Food" src="p88.jpg" />
+                <p>Pork (Pork Chops)</p>
+            </a>
+            <a class="category-item" href="p89.html">
+                <img alt="Tea, Coffee & Drinks" src="p89.jpg" />
+                <p>Beef (Minced)</p>
+            </a>
+            <a class="category-item" href="p90.html">
+                <img alt="Fruits & Vegetables" src="p90.jpg" />
+                <p>Turkey (Whole)</p>
+            </a>
+            <a class="category-item" href="p91.html">
+                <img alt="Cold Drink & Juices" src="p91.jpg" />
+                <p>Prawns (Medium-sized)</p>
+            </a>
+            <a class="category-item" href="p92.html">
+                <img alt="Chicken, Meat & Fish" src="p92.jpg" />
+                <p>Rohu Fish (Whole)</p>
+            </a>
+            <a class="category-item" href="p93.html">
+                <img alt="Baby Care" src="p93.jpg" />
+                <p>Pomfret Fish (Whole)</p>
+            </a>
+            <a class="category-item" href="p94.html">
+                <img alt="Cleaning Essentials" src="p94.jpg" />
+                <p>Sardines (Canned) </p>
+            </a>
+            <a class="category-item" href="p95.html">
+                <img alt="Pet Care" src="p95.jpg" />
+                <p>Crab (Whole)</p>
+            </a>
+            <a class="category-item" href="p96.html">
+                <img alt="Atta, Rice & Dal" src="p96.jpg" />
+                <p>Salmon (Fillet)</p>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="column">
+                <h3>
+                    VISIT US 
+                </h3>
+                <p>
+                    <i class="fas fa-map-marker-alt">
+                    </i>
+                    523 Avenue, 5th Floor
+                    <br />
+                    Molali, TG 94041 Hyderabad
+                </p>
+                <p>
+                    <i class="fas fa-clock">
+                    </i>
+                    Mon-Fri: 08:00am - 11:00pm
+                    <br />
+
+            </div>
+            <div class="column">
+                <h3>
+                    QUICK LINKS
+                </h3>
+
+                <p>
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+                </p>
+
+
+
+                <p>
+                    <a href="products.html">
+                        Products
+                    </a>
+                </p>
+                <p>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </p>
+
+
+            </div>
+            <div class="column">
+                <h3>
+                    GET IN TOUCH
+                </h3>
+                <p>
+                    We are always ready to answer any questions you may have or help you select organic fruits.
+                </p>
+                <div class="buttons">
+                    <a class="shop-now" href="products.html">
+                        SHOP NOW
+                    </a>
+                    <a class="contact-us" href="contact.html">
+                        CONTACT US
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <!-- <div>
+      <img alt="Visa logo" height="20" src="https://storage.googleapis.com/a1aa/image/B2erIFeoLWpR8EbfCjscY5vpzZgUfsIgrIFQDWqIvD6LSP2OB.jpg" width="40"/>
+      <img alt="MasterCard logo" height="20" src="https://storage.googleapis.com/a1aa/image/Z6aEPr3ranrcH9OBGEkfOFwio3oJ117glRFInbVeKHVh0jtTA.jpg" width="40"/>
+      <img alt="PayPal logo" height="20" src="https://storage.googleapis.com/a1aa/image/0TUDxxajnyLzJhortmXX3n9Z0SclO0xClvMO1wJ9yRKI9Y7E.jpg" width="40"/>
+     </div> -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/YourPage" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.twitter.com/YourPage" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/YourPage" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://plus.google.com/YourPage" target="_blank" aria-label="Google Plus">
+                    <i class="fab fa-google-plus-g"></i>
+                </a>
+
+            </div>
+
+            <p>
+                © 2024 Eatsy. All rights reserved.
+                <a>
+                    Privacy Policy
+                </a>
+                .
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

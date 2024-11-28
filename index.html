@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eatsy</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pIVbHvvj6jby6jdCkhglot1ywEoGq9U1WghRfJ0HNfB5cJdIJ8htdZBz6lBJ4slK6rLs0HtfP5e3g+0LxKkPiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet"/> 
+  <style>
+  body {
+            margin: 0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        .top-bar {
+            background-color: #cd1010;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar span {
+            font-size: 14px;
+        }
+        .top-bar .cart {
+            display: flex;
+            align-items: center;
+        }
+        .top-bar .cart i {
+            margin-right: 5px;
+        }
+        .header {
+            background-color: #ffeb3b;
+            padding: 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+        .header .logo img {
+            height: 63px;
+            margin-right: 10px;
+            width: 63px;
+        }
+        .header .logo h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: bold;
+            color: #510707;
+        }
+        .header .logo p {
+            margin: 0;
+            font-size: 12px;
+            color: #180b0b;
+        }
+        .contact-info {
+           
+            /* flex-direction: column; */
+            gap: 8px; /* Space between items */
+            font-size: 1em;
+            color: #333;
+        }
+
+        .contact-info p {
+           
+            align-items: center;
+            gap: 10px; /* Space between icon and text */
+            margin: 0;
+        }
+
+        .contact-info i {
+            color: #cd1010; /* Icon color */
+            font-size: 1.2em; /* Adjust icon size as needed */
+        }
+        .nav-bar {
+            background-color: #cd1010;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 91%;
+            margin-left: 53px;
+           
+            border-radius: 30px;
+            position: sticky;
+    top: 0;
+    z-index: 1000;
+        }
+        .nav-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 10px;
+            padding: 5px 10px;
+        }
+        .nav-bar a:hover {
+            color: #f0c040;
+        }
+       
+
+        .footer {
+            background-color: #ffeb3b;
+            color: #0a0606;
+            padding: 40px 0;
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #180f0f;
+        }
+        .footer h3::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: #cd1010;
+            margin-top: 10px;
+        }
+        .footer p, .footer a {
+            color: #000000;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .footer a {
+            text-decoration: none;
+        }
+        .footer .column {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .footer .column i {
+            margin-right: 10px;
+        }
+        .footer .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .footer .social-icons a {
+            color: #cc2d2d;
+            font-size: 20px;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .footer .bottom-bar {
+           
+         
+            text-align: center;
+            font-size: 14px;
+            color: #bfbfbf;
+        }
+        .footer .bottom-bar img {
+            margin: 0 5px;
+        }
+        .footer .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .footer .buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer .buttons .shop-now {
+            background-color: #000000;
+        }
+        .footer .buttons .contact-us {
+            background-color: #cd1010;
+        }
+
+
+
+
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+           
+            width: 92%;
+        }
+        .text-content {
+            max-width: 50%;
+        }
+        .text-content h1 {
+            font-size: 48px;
+            margin: 10px 0;
+        }
+        .text-content h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .text-content p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .text-content .highlight {
+            display: inline-block;
+            background-color: #fff200;
+            padding: 0 5px;
+        }
+        .text-content .shop-now {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .image-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container1 {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .card {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            margin-left: -50px; /* Overlapping effect */
+            z-index: 1;
+        }
+        .card img {
+            width: 53%;
+            height: 109%;
+            background: none; /* Remove background */
+        }
+        .card .content {
+            width: 50%;
+            padding-left: 20px;
+            text-align: left;
+        }
+        .card h2 {
+            font-size: 24px;
+            color: #08520a;
+            margin: -13px 0 10px;
+        }
+        .card p {
+            font-size: 16px;
+            color: #f69e05;
+            margin: 0 0 20px;
+        }
+        .card .price {
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        .card .button {
+            width: 40px;
+            height: 40px;
+            background-color: #6d6d6d;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            position: absolute;
+            bottom: 47px;
+            left: 63%;
+            transform: translateX(-50%);
+        }
+        .card:nth-child(1) {
+            background-color: #fdf8e4;
+            z-index: 3;
+        }
+        .card:nth-child(2) {
+            background-color: #e6f4f1;
+            z-index: 2;
+        }
+        .card:nth-child(3) {
+            background-color:#fdf8e4;
+            z-index: 1;
+        }
+        
+        .container0 {
+      display: flex;
+      gap: 2rem;
+    }
+    .main-item {
+      background-color: #f3f3f3;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 8px;
+      position: relative;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .main-item h2 {
+      font-size: 1.8rem;
+      margin: 0;
+      font-weight: bold;
+    }
+    .price {
+      font-size: 1.2rem;
+      color: #000000;
+     
+    }
+    .discounted-price {
+      font-size: 1.2rem;
+      color: #28a745;
+      margin-left: 0.5rem;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .countdown div {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #28a745;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #28a745;
+      flex-direction: column;
+    }
+    .countdown div span {
+      font-size: 0.7rem;
+      color: #555;
+    }
+    .button {
+      background-color: #28a745;
+      color: #fff;
+      padding: 0.7rem -5.5rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .secondary-items {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .item {
+      background-color: #fff;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    .item h3 {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      font-weight: normal;
+    }
+    .item .price {
+      color: #888;
+      text-decoration: line-through;
+    }
+    .item .discounted-price {
+      color: #28a745;
+      margin-left: 0.5rem;
+      font-weight: bold;
+    }
+    .sale-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ff6f61;
+      color: #fff;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .navigation span {
+      pointer-events: all;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #888;
+      padding: 0.5rem;
+    }
+        
+
+    h1 {
+            font-size: 40px;
+            color: #080404;
+            text-align: center;
+        }
+        .offers-container {
+            display: flex;
+            gap: 95px;
+            margin-left: 11%;
+            
+            
+        }
+        .offer-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .offer-card .top {
+            background-color: #e4002b;
+            color: white;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .offer-card .bottom {
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .offer-card .bottom p {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        .offer-card .bottom a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16pxpx;
+        }
+        .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icons */
+}
+
+/* Styling for each icon link */
+.header-icons .icon {
+    position: relative;
+    color:white;
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for icons */
+.header-icons .icon:hover {
+    color: #f1c40f; /* Change to desired hover color */
+}
+
+.fruits-vegetables-container {
+    width: 90%;
+    margin: 20px auto;
+}
+.fruits-vegetables-title {
+    font-size: 40px;
+    color: #333;
+}
+.fruits-vegetables-card-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.fruits-vegetables-card {
+    width: 23%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+.fruits-vegetables-card img {
+    width: 100%;
+    height: auto;
+}
+.fruits-vegetables-card-content {
+    padding: 10px;
+}
+.fruits-vegetables-card-content h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+    position: relative;
+}
+.fruits-vegetables-card-content h2::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 150%;
+    background-color: #e53935;
+}
+.fruits-vegetables-card-content p {
+    font-size: 16px;
+    color: #e53935;
+    font-weight: bold;
+    margin: 0;
+}
+.fruits-vegetables-card-content p span {
+    color: #333;
+}
+
+.slider {
+            position: relative;
+            width: 100%;
+            max-width: 1500px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            min-height: 40%;
+            box-sizing: border-box;
+            padding: 2px;
+            background-color: #ffeb3b; /* Darker yellow background color */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height:70vh;
+        }
+        .text-content {
+            text-align: center;
+            flex: 1;
+        }
+        .text-content h1 {
+            font-size: 55px;
+            margin: 10px 0;
+            color: #333333;
+        }
+        .text-content h2 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #333333;
+        }
+        .text-content p {
+            font-size: 25px;
+            color: #ff0000; /* Red color for discount text */
+        }
+        .text-content .highlight {
+            color: #ff0000; /* Red color for discount text */
+            font-weight: bold;
+        }
+        .text-content .shop-now {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .image-content {
+            flex: 1;
+            text-align: right;
+        }
+        .image-content img {
+            max-width: 120%;
+            height: auto;
+        }
+       
+
+
+        .container11 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .main-item, .side-items {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 37px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 90vh;
+        }
+        .main-item {
+            flex: 2;
+            text-align: center;
+        }
+        .side-items {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        .side-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            flex: 1;
+        }
+        .side-item img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .side-item .sale {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .main-item img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: 45vh;
+        }
+        .price {
+            font-size: 24px;
+            color: #28a745;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 18px;
+        }
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .timer div {
+            text-align: center;
+            border: 2px solid red;
+            border-radius: 50%;
+            padding: 10px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .timer div span {
+            display: block;
+            font-size: 24px;
+            color: #28a745;
+        }
+        .timer div small {
+            display: block;
+            font-size: 12px;
+            color: #888;
+        }
+        .shop-now {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .nav-button {
+            background-color: #fff;
+            border: none;
+            color: #888;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .collage {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .collage img {
+            border-radius: 10px;
+          
+            max-width: 100%;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 22%;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+        }
+        .product-card-title {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+        .product-card-description {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #333;
+        }
+        .product-card-discount {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin-top: 10px;
+            position: relative;
+        }
+        .product-card-discount::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 20px;
+            background-color: #d32f2f;
+            position: absolute;
+            left: -20px;
+            top: 0;
+        }
+
+
+
+        .deals-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .deal-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 22%;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+        .deal-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: auto;
+        }
+        .deal-card-title {
+            font-size: 18px;
+            margin: 10px 0;
+            position: relative;
+            padding-left: 15px;
+        }
+        .deal-card-title::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 5px;
+            height: calc(100% + 20px);
+            background-color: red;
+        }
+        .deal-card-offer {
+            font-size: 22px;
+            font-weight: bold;
+            color: #000;
+        }
+        .deal-card-offer span {
+            color: red;
+        }
+        .shop-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.shop-header h1 {
+    font-size: 33px;
+    color: #333;
+    align-items: center;
+}
+.shop-header a {
+    color: #ff3e3e;
+    text-decoration: none;
+    font-size: 14px;
+}
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.category-item {
+    background-color: #FDC707;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 20px);
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+}
+.category-item img {
+    max-width: 100%;
+    height: 245px;
+    margin-bottom: 10px;
+}
+.category-item p {
+    font-size: 23px;
+    color: #000000;
+    margin: 0;
+}
+
+
+.container-features {
+    display: flex;
+    justify-content: space-around;
+    width: 101%;
+}
+
+.feature-item {
+    text-align: center;
+    max-width: 200px;
+}
+
+.feature-icon {
+    font-size: 59px;
+    color: #8B0000; /* Dark Red */
+    margin-bottom: 10px;
+}
+
+.feature-title {
+    font-size: 18px;
+    color: #000;
+    margin: 10px 0;
+}
+
+.feature-description {
+    font-size: 13px;
+    color: #d80505;
+    margin: 0;
+}
+
+.feature-description a {
+    color: #ff4500;
+    text-decoration: none;
+}
+
+.container-unique {
+    display: flex;
+    gap: 90px;
+    margin-left: 118px;
+    margin-top: 72px;
+
+}
+
+.banner-unique {
+    border-radius: 10px;
+    padding: 20px;
+    width: 339px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    background-color: rgb(90, 56, 56);
+}
+
+.banner-unique img {
+    max-width: 900px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.banner-unique h2 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.banner-unique p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.banner-unique .cta-unique {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.banner-unique-1 {
+    background-color: #e6f0ff;
+}
+
+.banner-unique-1 h2 {
+    color: #007bff;
+}
+
+.banner-unique-1 .cta-unique {
+    background-color: #007bff;
+}
+
+.banner-unique-2 {
+    background-color: #fff4e6;
+}
+
+.banner-unique-2 h2 {
+    color: #ff4500;
+}
+
+.banner-unique-2 .cta-unique {
+    background-color: #ff4500;
+}
+
+.banner-unique-3 {
+    background-color: #e6f7f5;
+}
+
+.banner-unique-3 h2 {
+    color: #008080;
+}
+
+.banner-unique-3 .cta-unique {
+    background-color: #008080;
+}
+
+.banner-content-unique {
+    display: flex;
+    align-items: center;
+}
+
+.screenshot-container {
+    width: 100vw; /* Full viewport width */
+    overflow: hidden; /* Hide any overflow if needed */
+    display: flex;
+    justify-content: center;
+}
+
+.screenshot-image {
+    width: 1200px; /* Ensures the image is stretched to fill container */
+    height: auto; /* Maintains the image's aspect ratio */
+    object-fit: cover; /* Adjusts how the image fills its container */
+}
+
+
+
+
+.eatsy-main-heading {
+    color: #6b7280;
+    font-size: 69px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+.eatsy-sub-heading {
+    color: #6b7280;
+    font-size: 60px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+.eatsy-footer-text {
+    color: #6b7280;
+    font-size: 40px;
+    font-weight: 400;
+}
+.eatsy-highlight {
+    color: #e4002b;
+}
+.eatsy-heart {
+    color: #ff0000;
+}
+
+@keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+
+
+
+    .deals-container a img {
+        transition: transform 0.3s ease-in-out;
+    }
+    .deals-container a:hover img {
+        transform: scale(1.1);
+    }
+    .deals-container a img {
+        animation: pop-in 0.3s ease;
+    }
+    @keyframes pop-in {
+        0% {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+
+     /* Add CSS for pop-in and pop-out effect */
+    .product-container .product-card img {
+        transition: transform 0.3s ease-in-out;
+    }
+    .product-container .product-card:hover img {
+        transform: scale(1.1);
+    }
+    .product-container .product-card img {
+        animation: pop-in 0.3s ease;
+    }
+    @keyframes pop-in {
+        0% {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Pop-in effect when images come into view */
+.fruits-vegetables-card img {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* When the image is visible on the screen (via AOS or other visibility detection) */
+.fruits-vegetables-card.aos-animate img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Pop-out effect on hover */
+.fruits-vegetables-card img:hover {
+    transform: scale(1.1); /* Slightly increase size */
+    transition: transform 0.3s ease;
+}
+
+
+/* Add this CSS to your stylesheet */
+
+/* This adds a scale effect when hovering over the banner */
+.banner-unique {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.banner-unique:hover {
+    transform: scale(1.05); /* Slightly scale up */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+}
+
+/* Optional: To make the text and image fade in on page load */
+.banner-unique {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Add some subtle hover effect for the CTA button */
+.cta-unique {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-unique:hover {
+    background-color: #ff4500; /* Change to a darker or brighter color */
+    transform: scale(1.1); /* Slightly scale up */
+}
+
+
+/* Add this CSS to your stylesheet */
+
+/* This adds a scale effect when hovering over the banner */
+.banner-unique {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.banner-unique:hover {
+    transform: scale(1.05); /* Slightly scale up */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+}
+
+/* Optional: To make the text and image fade in on page load */
+.banner-unique {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Add some subtle hover effect for the CTA button */
+.cta-unique {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-unique:hover {
+    background-color: #ff4500; /* Change to a darker or brighter color */
+    transform: scale(1.1); /* Slightly scale up */
+}
+
+
+.item-wrapper {
+    display: flex;
+}
+
+.item-block {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.item-block.item-order {
+    background-color: #e8e5d4;
+}
+
+.item-block.item-smoothie {
+    background-color: #e0ebeb;
+}
+
+.item-block.item-summer {
+    background-color: #e8e5d4;
+}
+
+.item-block img {
+    width: 50%;
+    height: auto;
+}
+
+.item-details {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.item-heading {
+    font-size: 36px;
+    color: #ef1010;
+    margin: 20px 0 10px;
+}
+
+.item-subheading {
+    font-size: 18px;
+    color: #000000;
+    margin: 0 0 20px;
+}
+
+.item-cost {
+    font-size: 18px;
+    color: #000;
+    margin: 0 0 20px;
+}
+
+.item-link {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #7d7d7d;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <span>Opening hours: Monday - Friday: 8AM-11PM</span>
+  </div>
+  <div class="header">
+    <div class="logo">
+      <a href="index.html">
+        <img alt="Logo" height="60" src="logo-removebg-preview.png" width="40" data-aos="fade-right" data-aos-delay="200"/> 
+      </a>
+      <div>
+        <h1>Eatsy</h1>
+        <p>ONE STOP STORE</p>
+      </div>
+    </div>
+    <div class="contact-info">
+      <p><i class="fas fa-map-marker-alt"></i> 523 AVENUE, 5th FLOOR, MOULALI, TG 94041 HYDERABAD</p>
+    </div>
+    <div class="contact-info">
+      <p><i class="fas fa-phone"></i> +91 9876543210</p>
+    </div>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> info@EATSY.COM</p>
+    </div>
+  </div>
+
+  <div class="nav-bar">
+    <a href="index.html">HOME</a>
+    <a href="products.html">PRODUCTS</a>
+    <a href="about.html">ABOUT US</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">CONTACT US</a>
+    <div class="header-icons">
+      <a href="cart.html" class="icon" aria-label="Shopping Cart"><i class="fas fa-shopping-cart"></i></a>
+      <a href="profile.html" class="icon" aria-label="User Profile"><i class="fas fa-user"></i></a>
+    </div>
+  </div>
+<div class="slider">
+    <div class="slides">
+
+        <div class="slide">
+            <div class="text-content">
+                <p class="highlight">SUMMER DISCOUNTS UP TO 40%</p>
+                <h1>A WIDE VARIETY</h1>
+                <h2>OF DIFFERENT FRUITS</h2>
+                <a class="shop-now" href="c1.html">SHOP NOW</a>
+            </div>
+            <div class="image-content">
+                <img alt="A variety of fruits including a lime, grapefruit, mango, avocado, and coconut, arranged with green leaves" height="400" src="https://storage.googleapis.com/a1aa/image/ETpX4lTjiN7bKVtTkNzmgQ6dgIiMtdzbRFUelIc40bJGJ72JA.jpg" width="600"/>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="text-content">
+                <p class="highlight">WINTER DISCOUNTS UP TO 30%</p>
+                <h1>FRESH MILK</h1>
+                <h2>AND DAIRY PRODUCTS</h2>
+                <a class="shop-now" href="c2.html">SHOP NOW</a>
+            </div>
+            <div class="image-content">
+                <img alt="A variety of milk products including milk bottles, cheese, and yogurt" height="400" src="https://storage.googleapis.com/a1aa/image/8LkqG0eEeCn9WkxXt0zPcMtUsKvr9IeWjJONOQ9Qxe4eQyudC.jpg" width="600"/>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="text-content">
+                <p class="highlight">SPRING DISCOUNTS UP TO 25%</p>
+                <h1>QUALITY MEAT</h1>
+                <h2>AND POULTRY</h2>
+                <a class="shop-now" href="c8.html">SHOP NOW</a>
+            </div>
+            <div class="image-content">
+                <img alt="A variety of meat products including chicken, beef, and pork" height="400" src="https://storage.googleapis.com/a1aa/image/4bIu01QzuMrILFXUBqfQQwKSgBMoTR5SMywrCHabP12EJ72JA.jpg" width="600"/>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="text-content">
+                <p class="highlight">AUTUMN DISCOUNTS UP TO 20%</p>
+                <h1>DAILY GROCERIES</h1>
+                <h2>AND ESSENTIALS</h2>
+                <a class="shop-now" href="c1.html">SHOP NOW</a>
+            </div>
+            <div class="image-content">
+                <img alt="A variety of daily groceries including bread, eggs, and vegetables" height="400" src="https://storage.googleapis.com/a1aa/image/QROZUM6ycsINPFS2PAgLG84ZfIh9HbreGwQ7LxuMVe2VksbnA.jpg" width="600"/>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="text-content">
+                <p class="highlight">YEAR-END DISCOUNTS UP TO 50%</p>
+                <h1>FRESH VEGETABLES</h1>
+                <h2>AND GREENS</h2>
+                <a class="shop-now" href="c1.html">SHOP NOW</a>
+            </div>
+            <div class="image-content">
+                <img alt="A variety of fresh vegetables including carrots, broccoli, and spinach" height="400" src="https://storage.googleapis.com/a1aa/image/MvQZXUgLoWocJpoMZt8UOJPY9UXg3VI9NsWde6VPD0EDJ72JA.jpg" width="600"/>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <div class="item-wrapper">
+        <div class="item-block item-order">
+         <img alt="A crate of fresh oranges" height="300" src="fruu1-removebg-preview.png" width="300"/>
+         <div class="item-details">
+          <h2 class="item-heading">
+           ORDER
+          </h2>
+          <p class="item-subheading">
+           OUR FRUIT BOX
+          </p>
+          <p class="item-cost">
+           From ₹89.00
+          </p>
+          <a class="item-link" href="c1.html">
+           →
+          </a>
+         </div>
+        </div>
+        <div class="item-block item-smoothie">
+         <img alt="A jar of fresh strawberry smoothie with a straw" height="300" src="https://storage.googleapis.com/a1aa/image/pdO5scXbhLJWCRrHjuulqoJftXjm27GQCr8pO91nOaFsI82JA.jpg" width="300"/>
+         <div class="item-details">
+          <h2 class="item-heading">
+           FRESH
+          </h2>
+          <p class="item-subheading">
+           FROM SEA
+          </p>
+          <p class="item-cost">
+           From ₹199.00
+          </p>
+          <a class="item-link" href="p92.html">
+           →
+          </a>
+         </div>
+        </div>
+        <div class="item-block item-summer">
+         <img alt="A cracked open coconut" height="300" src="silk.png" width="300"/>
+         <div class="item-details">
+          <h2 class="item-heading">
+           NEW
+          </h2>
+          <p class="item-subheading">
+           SUMMER OFFERS
+          </p>
+          <p class="item-cost">
+           From ₹99.00
+          </p>
+          <a class="item-link" href="c5.html">
+           →
+          </a>
+         </div>
+        </div>
+     </div>
+     
+ 
+ 
+
+   <div class="container-unique"> <div class="banner-unique banner-unique-1" data-aos="zoom-in" data-aos-delay="200">
+        <div class="banner-content-unique">
+            <div style="text-align: center;">
+                <h2>
+                    10% Cashback on
+                    <br/>
+                    <span style="color: #007bff;">
+                        personal care
+                    </span>
+                </h2>
+                <p>
+                    Code:
+                    <strong>CARE12</strong>
+                </p>
+            </div>
+            <img alt="Image of personal care products" height="135" src="personal.png" data-aos="fade-up" data-aos-delay="400"/>
+        </div>
+        <a class="cta-unique" href="products.html">
+            Order Now
+        </a>
+    </div>
+
+    <div class="banner-unique banner-unique-2" data-aos="zoom-in" data-aos-delay="300">
+        <div class="banner-content-unique">
+            <div>
+                <h2>
+                    Say yes to
+                    <br/>
+                    season’s
+                    <span style="color: #ff4500;">
+                        fresh
+                    </span>
+                </h2>
+                <p>Refresh your day the fruity way</p>
+            </div>
+            <img alt="Image of fresh fruits" height="142" src="fruitss.png" data-aos="fade-up" data-aos-delay="500"/>
+        </div>
+        <a class="cta-unique" href="products.html">
+            Order Now
+        </a>
+    </div>
+
+    <div class="banner-unique banner-unique-3" data-aos="zoom-in" data-aos-delay="400">
+        <div class="banner-content-unique">
+            <div>
+                <h2>
+                    When in doubt,
+                    <br/>
+                    eat
+                    <span style="color: #008080;">
+                        ice cream
+                    </span>
+                </h2>
+                <p>Enjoy a scoop of summer today</p>
+            </div>
+            <img alt="Image of ice cream scoops" height="207" src="icee.png" data-aos="fade-up" data-aos-delay="600"/>
+        </div>
+        <a class="cta-unique" href="products.html">
+            Order Now
+        </a>
+    </div>
+</div>
+
+<br>
+
+<div class="fruits-vegetables-container">
+    <h1 class="fruits-vegetables-title" data-aos="fade-up" data-aos-delay="200">
+        Fruits and Vegetables
+    </h1>
+    <div class="fruits-vegetables-card-row">
+        <a class="fruits-vegetables-card" href="c1.html" data-aos="fade-up" data-aos-delay="300">
+            <img alt="Image of fresh vegetables including carrots, onions, and tomatoes" height="200" src="https://storage.googleapis.com/a1aa/image/JlzwNzb9U452L9ikNenb7GmZEaygZs675CFUWXaGS2gQqz2JA.jpg" width="300"/>
+            <div class="fruits-vegetables-card-content">
+                <h2>Fresh Vegetables</h2>
+                <p>MIN 27% OFF</p>
+            </div>
+        </a>
+        <a class="fruits-vegetables-card" href="c1.html" data-aos="fade-up" data-aos-delay="400">
+            <img alt="Image of fresh fruits including bananas, apples, and oranges" height="200" src="https://storage.googleapis.com/a1aa/image/Ler8wp1zCLTCJiwECaARCzLzQxBGtsIqkuud8IYsaa6Pqz2JA.jpg" width="300"/>
+            <div class="fruits-vegetables-card-content">
+                <h2>Fresh Fruits</h2>
+                <p>MIN 27% OFF</p>
+            </div>
+        </a>
+        <a class="fruits-vegetables-card" href="c1.html" data-aos="fade-up" data-aos-delay="500">
+            <img alt="Image of cuts and exotic fruits including dragon fruit and pomegranate" height="200" src="https://storage.googleapis.com/a1aa/image/xjeexOABoRqlLU1yj62LqlQBqLeXUY784lAblnfT427ISd2OB.jpg" width="300"/>
+            <div class="fruits-vegetables-card-content">
+                <h2>Cuts &amp; Exotics</h2>
+                <p>MIN 27% OFF</p>
+            </div>
+        </a>
+        <a class="fruits-vegetables-card" href="c1.html" data-aos="fade-up" data-aos-delay="600">
+            <img alt="Image of fresh tomatoes" height="200" src="https://storage.googleapis.com/a1aa/image/pgFAf8QkhVxJRKx9FfkyMlXtedUYtrSalGIWiNMMLVYVuObnA.jpg" width="300"/>
+            <div class="fruits-vegetables-card-content">
+                <h2>Herbs &amp; Seasonings</h2>
+                <p>MIN 27% OFF</p>
+            </div>
+        </a>
+    </div>
+    
+</div>
+
+<br>
+
+<h1 class="fruits-vegetables-title" data-aos="fade-up" data-aos-delay="200">
+    Meat & Seafood Delights
+</h1>
+<div class="product-container">
+    <a class="product-card" href="p92.html" data-aos="fade-up" data-aos-delay="300">
+        <img alt="Raw Fish" height="200" src="https://storage.googleapis.com/a1aa/image/pdO5scXbhLJWCRrHjuulqoJftXjm27GQCr8pO91nOaFsI82JA.jpg" width="300"/>
+        <h3 class="product-card-title">Fresh Fish</h3>
+        <p class="product-card-discount">MIN 30% OFF</p>
+    </a>
+    <a class="product-card" href="p91.html" data-aos="fade-up" data-aos-delay="400">
+        <img alt="Raw Prawns" height="200" src="https://storage.googleapis.com/a1aa/image/t1bIe4HM2aSLYC7RtNnR7Vm7v0Mbx6fMHGdTDmJKCzYaR4tTA.jpg" width="300"/>
+        <h3 class="product-card-title">Fresh Prawns</h3>
+        <p class="product-card-discount">MIN 30% OFF</p>
+    </a>
+    <a class="product-card" href="p95.html" data-aos="fade-up" data-aos-delay="500">
+        <img alt="Raw Crab" height="200" src="https://storage.googleapis.com/a1aa/image/E8Bnvey5fErYlEfS5efry2U1lxZzH3BfOMkHXEQovaDQVEe2JA.jpg" width="300"/>
+        <h3 class="product-card-title">Fresh Crab</h3>
+        <p class="product-card-discount">MIN 30% OFF</p>
+    </a>
+    <a class="product-card" href="p85.html" data-aos="fade-up" data-aos-delay="600">
+        <img alt="Raw Chicken" height="200" src="https://storage.googleapis.com/a1aa/image/DVtPvGJz0O79Jph1IJdLuH9rQbf3GMWooQUrIskBVksrI82JA.jpg" width="300"/>
+        <h3 class="product-card-title">Fresh Chicken</h3>
+        <p class="product-card-discount">MIN 30% OFF</p>
+    </a>
+</div>
+<br>
+<h1 class="fruits-vegetables-title" data-aos="fade-up" data-aos-delay="200">
+    Crunch & Munch
+</h1>
+<div class="deals-container">
+    <a data-aos="fade-up" data-aos-delay="300">
+        <img alt="Chai Time Snack products" height="200" src="https://storage.googleapis.com/a1aa/image/S0utGsx3UhYeDCRoKLB5le1PXNEZtYbfGu1pkfFSnVFILl3OB.jpg" width="200"/>
+        <div class="deal-card-title">Chai Time Snack</div>
+        <div class="deal-card-offer">UP TO <span>50% OFF</span></div>
+    </a>
+    <a data-aos="fade-up" data-aos-delay="400">
+        <img alt="Morning Starters products" height="200" src="https://storage.googleapis.com/a1aa/image/CD97xQcxYp6NG9gVL7XyIOUm5F8RkqhyPPGsClYvRY0rUe2JA.jpg" width="200"/>
+        <div class="deal-card-title">Morning Starters</div>
+        <div class="deal-card-offer">UP TO <span>50% OFF</span></div>
+    </a>
+    <a data-aos="fade-up" data-aos-delay="500">
+        <img alt="Pasta, Sauces & More products" height="200" src="https://storage.googleapis.com/a1aa/image/afh7oKfrWvtaV0OD46YnAz6APmBeKrCVgDXmD9LQPOfHLl3OB.jpg" width="200"/>
+        <div class="deal-card-title">Pasta, Sauces & More</div>
+        <div class="deal-card-offer">UP TO <span>40% OFF</span></div>
+    </a>
+    <a data-aos="fade-up" data-aos-delay="600">
+        <img alt="Sweet Cravings products" height="200" src="https://storage.googleapis.com/a1aa/image/HfiElWCcJzW7I6MT4PpE7Z5PhnImvOeuIqzh8j8HsFP0S5tTA.jpg" width="200"/>
+        <div class="deal-card-title">Sweet Cravings</div>
+        <div class="deal-card-offer">UP TO <span>40% OFF</span></div>
+    </a>
+</div>
+<h1 class="fruits-vegetables-title" data-aos="fade-up" data-aos-delay="200">
+    Today's Best Deals
+</h1>
+<div class="container">
+    <div class="main-item" data-aos="fade-up" data-aos-delay="300">
+        <h1>WATERMELONS</h1>
+        <p>
+            <span class="old-price">₹60.00</span>
+            <span class="price">₹35.00</span>
+        </p>
+        <img alt="A whole watermelon and a half watermelon with red flesh" height="200" src="https://storage.googleapis.com/a1aa/image/J0ohuym1ttpeKauosvGDpBeFf3hBpGCyu9W53biVYlPTktbnA.jpg" width="300"/>
+        <div class="timer">
+            <div>
+                <span id="hours">06</span>
+                <small>HRS</small>
+            </div>
+            <div>
+                <span id="minutes">20</span>
+                <small>MIN</small>
+            </div>
+            <div>
+                <span id="seconds">46</span>
+                <small>SEC</small>
+            </div>
+        </div>
+        <a href="products.html"><button class="shop-now">SHOP NOW</button></a>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; width: 100%; gap: 10px;">
+        <div style="flex: 1 1 48%; box-sizing: border-box; padding: 10px; border: 1px solid #ddd; border-radius: 8px; text-align: center;" data-aos="fade-up" data-aos-delay="400">
+            <div style="position: relative;">
+                <img src="https://storage.googleapis.com/a1aa/image/q5mZF457kC48EZetjKKukQe5PuyjglLBJblgyF0rC3Vtx2tTA.jpg" alt="Strawberries" style="width: 250px; height: 250px; border-radius: 8px;">
+                <div style="position: absolute; top: 8px; left: 8px; background-color: red; color: white; padding: 4px 8px; font-size: 12px; border-radius: 4px; animation: blink 1s infinite;">SALE</div>
+            </div>
+            <p style="margin: 10px 0 5px; font-weight: bold;">Strawberries</p>
+            <p style="margin: 0; color: #191212;"><span style="text-decoration: line-through; color: #1a0606;">₹100.00</span> ₹80.00</p>
+        </div>
+    
+        <div style="flex: 1 1 48%; box-sizing: border-box; padding: 10px; border: 1px solid #ddd; border-radius: 8px; text-align: center;" data-aos="fade-up" data-aos-delay="500">
+            <div style="position: relative;">
+                <img src="https://storage.googleapis.com/a1aa/image/KT7ebChXkWxsPC2qewL2AgBw0K23Y0CuPOuYKGz5BZGEy2tTA.jpg" alt="Bananas" style="width: 250px; height: 250px; border-radius: 8px;">
+                <div style="position: absolute; top: 8px; left: 8px; background-color: red; color: white; padding: 4px 8px; font-size: 12px; border-radius: 4px; animation: blink 1s infinite;">SALE</div>
+            </div>
+            <p style="margin: 10px 0 5px; font-weight: bold;">Bananas</p>
+            <p style="margin: 0; color: #100d0d;"><span style="text-decoration: line-through; color: #1a0606;">₹80.00</span> ₹40.00</p>
+        </div>
+    
+        <div style="flex: 1 1 48%; box-sizing: border-box; padding: 10px; border: 1px solid #ddd; border-radius: 8px; text-align: center;" data-aos="fade-up" data-aos-delay="600">
+            <div style="position: relative;">
+                <img src="https://storage.googleapis.com/a1aa/image/x5WkZGA8JbJCCZuyses0JqPAu6pX7dLzPOxeuxrmaZHsx2tTA.jpg" alt="Pineapples" style="width: 250px; height: 250px; border-radius: 8px;">
+                <div style="position: absolute; top: 8px; left: 8px; background-color: red; color: white; padding: 4px 8px; font-size: 12px; border-radius: 4px; animation: blink 1s infinite;">SALE</div>
+            </div>
+            <p style="margin: 10px 0 5px; font-weight: bold;">Pineapples</p>
+            <p style="margin: 0; color: #100b0b;"><span style="text-decoration: line-through; color: #1a0606;">₹90.00</span> ₹60.00</p>
+        </div>
+    
+        <div style="flex: 1 1 48%; box-sizing: border-box; padding: 10px; border: 1px solid #ddd; border-radius: 8px; text-align: center;" data-aos="fade-up" data-aos-delay="700">
+            <div style="position: relative;">
+                <img src="https://storage.googleapis.com/a1aa/image/pcfKfffBc0sKwSc1L4TYXgGH9Hoh27rI2BzDsQsG0qGsGb3OB.jpg" alt="Galia Melons" style="width: 250px; height: 250px; border-radius: 8px;">
+                <div style="position: absolute; top: 8px; left: 8px; background-color: red; color: white; padding: 4px 8px; font-size: 12px; border-radius: 4px; animation: blink 1s infinite;">SALE</div>
+            </div>
+            <p style="margin: 10px 0 5px; font-weight: bold;">Galia Melons</p>
+            <p style="margin: 0; color: #000000;"><span style="text-decoration: line-through; color: #1a0606;">₹100.00</span> ₹80.00</p>
+        </div>
+    </div>
+    
+</div>
+
+<br>
+<div class="shop-container">
+    <div class="shop-header">
+        <h1>Shop Popular Categories</h1>
+        <a href="products.html">View all <i class="fas fa-chevron-right"></i></a>
+    </div>
+    <div class="category-list">
+        <a class="category-item" href="c1.html" data-aos="fade-up" data-aos-delay="200">
+            <img alt="Dairy, Bread & Eggs" src="shop1.webp" style="transition: transform 0.3s ease;">
+            <p>Fruits & Vegetables</p>
+        </a>
+        <a class="category-item" href="c2.html" data-aos="fade-up" data-aos-delay="300">
+            <img alt="Snack & Munchies" src="shop2.jpg" style="transition: transform 0.3s ease;">
+            <p>Dairy & Bakery</p>
+        </a>
+        <a class="category-item" href="c3.html" data-aos="fade-up" data-aos-delay="400">
+            <img alt="Bakery & Biscuits" src="shop3.jpg" style="transition: transform 0.3s ease;">
+            <p>Munchies</p>
+        </a>
+        <a class="category-item" href="c4.html" data-aos="fade-up" data-aos-delay="500">
+            <img alt="Instant Food" src="shop4.jpg" style="transition: transform 0.3s ease;">
+            <p>Instant Food & Frozen Food</p>
+        </a>
+        <a class="category-item" href="c5.html" data-aos="fade-up" data-aos-delay="600">
+            <img alt="Tea, Coffee & Drinks" src="shop5.jpg" style="transition: transform 0.3s ease;">
+            <p>Chocolate & Biscuits</p>
+        </a>
+        <a class="category-item" href="c6.html" data-aos="fade-up" data-aos-delay="700">
+            <img alt="Fruits & Vegetables" src="shop6.webp" style="transition: transform 0.3s ease;">
+            <p>Tea & Coffee</p>
+        </a>
+        <a class="category-item" href="c7.html" data-aos="fade-up" data-aos-delay="800">
+            <img alt="Cold Drink & Juices" src="shop7.jpg" style="transition: transform 0.3s ease;">
+            <p>Home Care</p>
+        </a>
+        <a class="category-item" href="c8.html" data-aos="fade-up" data-aos-delay="900">
+            <img alt="Chicken, Meat & Fish" src="shop8.jpg" style="transition: transform 0.3s ease;">
+            <p>Meat & Sea Food</p>
+        </a>
+        <a class="category-item" href="c9.html" data-aos="fade-up" data-aos-delay="1000">
+            <img alt="Baby Care" src="shop9.jpg" style="transition: transform 0.3s ease;">
+            <p>Sweets</p>
+        </a>
+        <a class="category-item" href="c10.html" data-aos="fade-up" data-aos-delay="1100">
+            <img alt="Cleaning Essentials" src="shop10.png" style="transition: transform 0.3s ease;">
+            <p>Rice Bags</p>
+        </a>
+        <a class="category-item" href="c11.html" data-aos="fade-up" data-aos-delay="1200">
+            <img alt="Pet Care" src="shop11.webp" style="transition: transform 0.3s ease;">
+            <p>Oils</p>
+        </a>
+        <a class="category-item" href="c12.html" data-aos="fade-up" data-aos-delay="1300">
+            <img alt="Atta, Rice & Dal" src="shop12.jpg" style="transition: transform 0.3s ease;">
+            <p>Sauces & Spreads</p>
+        </a>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+
+
+
+<div class="container-features">
+    <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+        <i class="feature-icon fas fa-stopwatch"></i>
+        <h3 class="feature-title">10 minute grocery now</h3>
+        <p class="feature-description">Get your order delivered to your doorstep at the earliest from Eatpure pickup stores near you.</p>
+    </div>
+    <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+        <i class="feature-icon fas fa-gift"></i>
+        <h3 class="feature-title">Best Prices & Offers</h3>
+        <p class="feature-description">Cheaper prices than your local supermarket, great cashback offers to top it off. Get best prices & offers.</p>
+    </div>
+    <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+        <i class="feature-icon fas fa-shopping-cart"></i>
+        <h3 class="feature-title">Wide Assortment</h3>
+        <p class="feature-description">Choose from 5000+ products across food, personal care, household, bakery, veg and non-veg & other categories.</p>
+    </div>
+    <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+        <i class="feature-icon fas fa-sync-alt"></i>
+        <h3 class="feature-title">Easy Returns</h3>
+        <p class="feature-description">Not satisfied with a product? Return it at the doorstep & get a refund within hours. No questions asked <a href="#">policy</a>.</p>
+    </div>
+</div>
+
+<br>
+
+
+<h1>Serving Clients all over the world</h1>
+<h3 style="text-align: center;">Customers in over 180 countries are growing their businesses with Eatsy </h3>
+<div class="screenshot-container">
+ 
+    <img src="globe1.png" alt="Screenshot" class="screenshot-image" data-aos="fade-up" data-aos-delay="200">
+</div>
+
+<br>
+<br>
+
+<div class="eatsy-main-heading" style="text-align: center;">The place that fits all</div>
+<div class="eatsy-sub-heading" style="text-align: center;">your needs</div>
+<div class="eatsy-footer-text" style="text-align: center;">
+    Crafted with love from <span class="eatsy-highlight">Team Eatsy</span> <span class="eatsy-heart">❤️</span>
+</div>
+
+<br>
+<br>
+
+<div class="footer">
+    <div class="container">
+        <div class="column">
+            <h3>VISIT US</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 523 Avenue, 5th Floor<br/> Molali, TG 94041 Hyderabad</p>
+            <p><i class="fas fa-clock"></i> Mon-Fri: 08:00am - 11:00pm</p>
+        </div>
+        <div class="column">
+            <h3>QUICK LINKS</h3>
+            <a href="faq.html">FAQ</a></p>
+            <p><a href="products.html">Products</a></p>
+            <p><a href="about.html">About Us</a></p>
+        </div>
+        <div class="column">
+            <h3>GET IN TOUCH</h3>
+            <p>We are always ready to answer any questions you may have or help you select organic fruits.</p>
+            <div class="buttons">
+                <a class="shop-now" href="products.html">SHOP NOW</a>
+                <a class="contact-us" href="contact.html">CONTACT US</a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/YourPage" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.twitter.com/YourPage" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/YourPage" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://plus.google.com/YourPage" target="_blank" aria-label="Google Plus">
+                <i class="fab fa-google-plus-g"></i>
+            </a>
+        </div>
+        <p>© 2024 Eatsy. All rights reserved. <a href="#">Privacy Policy</a>.</p>
+    </div>
+</div>
+
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        const slidesContainer = document.querySelector('.slides');
+        slidesContainer.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 3000);
+</script>
+<script>
+    function startTimer(duration, display) {
+        var timer = duration, hours, minutes, seconds;
+        setInterval(function () {
+            hours = parseInt(timer / 3600, 10);
+            minutes = parseInt((timer % 3600) / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.hours.textContent = hours;
+            display.minutes.textContent = minutes;
+            display.seconds.textContent = seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        var hours = document.getElementById('hours');
+        var minutes = document.getElementById('minutes');
+        var seconds = document.getElementById('seconds');
+        var display = { hours: hours, minutes: minutes, seconds: seconds };
+        var duration = 6 * 3600 + 21 * 60 + 21; // 6 hours, 21 minutes, 21 seconds
+        startTimer(duration, display);
+    };
+</script>
+<script>
+    // Add zoom effect on hover
+    document.querySelectorAll('.category-item img').forEach(img => {
+        img.addEventListener('mouseenter', () => {
+            img.style.transform = 'scale(1.1)';
+        });
+        img.addEventListener('mouseleave', () => {
+            img.style.transform = 'scale(1)';
+        });
+    });
+</script>
+</body>
+</html>

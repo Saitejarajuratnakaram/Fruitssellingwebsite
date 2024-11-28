@@ -1,0 +1,526 @@
+<html>
+
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pIVbHvvj6jby6jdCkhglot1ywEoGq9U1WghRfJ0HNfB5cJdIJ8htdZBz6lBJ4slK6rLs0HtfP5e3g+0LxKkPiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="H&F.css">
+    <style>
+        /* Basic styling for the main container */
+.contact-container {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    align-items: center; /* Center content horizontally */
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Banner styling */
+.contact-banner {
+    width: 100%;
+    height: 300px; /* Height of the banner */
+    background-image: url('Banner.jpg'); /* Replace with your banner image URL */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(249, 247, 247); /* Text color for breadcrumbs */
+}
+
+.contact-breadcrumbs {
+    position: absolute;
+    bottom: 145px; /* Position from the bottom of the banner */
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.contact-breadcrumbs a {
+    color: #cd1010;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.contact-breadcrumbs a:hover {
+    color: #ffcc00; /* Color change on hover */
+}
+
+/* Inner container styling */
+.contact-inner-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    border-radius: 10px;
+    animation: slideUp 1s ease-in-out;
+    background-color: white; /* Added background color for better contrast */
+    margin-bottom: 40px; /* Space between container and map */
+}
+
+/* Contact info section */
+.contact-info-section {
+    font-size: 20px;
+    width: 40%;
+    margin-top: 8px;
+}
+
+.contact-info-section h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-info-section p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.contact-info-section hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Social icons styling */
+.contact-social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.contact-social-icons a {
+    text-decoration: none;
+    font-size: 40px;
+    color: #333;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.contact-social-icons a:hover {
+    color: #cd1010;
+    transform: scale(1.2);
+}
+
+/* Contact form section */
+.contact-form-section {
+    width: 50%;
+}
+
+.contact-form-section h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-form-section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.contact-form-section label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.contact-form-section input,
+.contact-form-section textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.contact-form-section input:focus,
+.contact-form-section textarea:focus {
+    border-color: #0078d4;
+    outline: none;
+}
+
+/* Button styling */
+.contact-form-section button {
+    background-color: #cd1010;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-form-section button:hover {
+    background-color: #fcd707;
+    color: black;
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal styling */
+.contact-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.contact-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.contact-close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.contact-close-btn:hover,
+.contact-close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Google map styling */
+.contact-map {
+    width: 106%;
+    height: 400px;
+    border: none;
+    border-radius: 5px;
+
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <span>
+            Opening hours: Monday - Friday: 8AM-11PM
+        </span>
+
+    </div>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img alt="Logo" height="60" src="logo-removebg-preview.png" width="40"  />
+            </a>
+            <div>
+                <h1>
+                    Eatsy
+                </h1>
+                <p>
+                    ONE STOP STORE
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-map-marker-alt"></i> 523 AVENUE, 5th FLOOR, MOULALI, TG 94041 HYDERABAD
+            </p>
+        </div>
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-phone"></i> +91 9876543210
+            </p>
+        </div>
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-envelope"></i> info@EATSY.COM
+            </p>
+        </div>
+    </div>
+
+    </div>
+    <div class="nav-bar">
+        <a href="index.html">
+            HOME
+        </a>
+        <a href="products.html">
+            PRODUCTS
+        </a>
+        <a href="about.html">
+            ABOUT US
+        </a>
+        <a href="faq.html">
+            FAQ
+        </a>
+        <a href="contact.html">
+            CONTACT US
+        </a>
+        <!-- <a href="">
+         SHOP NOW
+        </a> -->
+        <div class="header-icons">
+
+            <a href="cart.html" class="icon" aria-label="Shopping Cart">
+                <i class="fas fa-shopping-cart"></i>
+
+            </a>
+
+            <a href="profile.html" class="icon" aria-label="User Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- header end  -->
+
+
+    <div class="contact-container">
+        <!-- Banner Section -->
+        <div class="contact-banner">
+            <div class="contact-breadcrumbs">
+                <a href="index.html">Home</a> / <span>Contact</span>
+            </div>
+        </div>
+        <div class="contact-inner-container">
+            <div class="contact-info-section">
+                <h3>ADDRESS</h3>
+                <p>100-feet road,</p>
+                <p>Madhapur,</p>
+                <p>Hyderabad, Telangana - 500081</p>
+                <hr>
+                <h3>ELECTRONIC MAIL</h3>
+                <p>contact@info.com</p>
+                <hr>
+                <h3>PHONE SUPPORT</h3>
+                <p>Hours: 9am - 6pm (IST), Monday - Friday</p>
+                <p>9am- 8pm on Saturday and Sunday</p>
+                <p>+91 9876543210</p>
+                <hr>
+                <h3>Follow us on</h3>
+                <div class="contact-social-icons">
+                    <a href="https://www.instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="contact-form-section">
+                <h2>CONTACT US</h2>
+                <p>Hey there! Feel free to use the contact form below to get in touch with us, or reach out the
+                    traditional way. We’re here to help with all your fresh produce needs!</p>
+                <form onsubmit="return handleSubmit(event)">
+                    <label for="name">NAME</label>
+                    <input type="text" id="name" name="name" oninput="removeNumbers(this)">
+    
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="email">
+    
+                    <label for="phone">PHONE NUMBER</label>
+                    <input type="text" id="phone" name="phone" maxlength="10" oninput="onlyNumbers(this)">
+    
+                    <label for="message">MESSAGE</label>
+                    <textarea id="message" name="message"></textarea>
+    
+                    <button type="submit">Submit</button>
+                </form>
+    
+                <!-- Popup Modal -->
+                <div id="myModal" class="contact-modal">
+                    <div class="contact-modal-content">
+                        <span class="contact-close-btn" onclick="closeModal()">&times;</span>
+                        <p id="popupMessage"></p>
+                    </div>
+                </div>
+    
+                <script>
+                    // Remove numbers from name field input
+                    function removeNumbers(input) {
+                        input.value = input.value.replace(/[^A-Za-z\s]/g, ''); // Allow only letters and spaces
+                    }
+    
+                    // Allow only numbers and limit to 10 digits for phone number field
+                    function onlyNumbers(input) {
+                        input.value = input.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+                        if (input.value.length > 10) {
+                            input.value = input.value.slice(0, 10); // Limit to 10 characters
+                        }
+                    }
+    
+                    // Form submission handler with popup
+                    function handleSubmit(event) {
+                        event.preventDefault(); // Prevent form from submitting
+    
+                        const name = document.getElementById("name").value.trim();
+                        const phone = document.getElementById("phone").value.trim();
+    
+                        // Check if name is filled
+                        if (name === "") {
+                            alert("Please enter your name.");
+                            return false;
+                        }
+    
+                        // Check if phone number is 10 digits
+                        if (phone.length !== 10) {
+                            alert("Phone number should contain exactly 10 digits.");
+                            return false;
+                        }
+    
+                        // Show popup with name entered
+                        document.getElementById("popupMessage").innerText = `${name}, your message has been sent successfully!`;
+                        document.getElementById("myModal").style.display = "block";
+    
+                        // Reset the form after submission
+                        document.querySelector("form").reset();
+                    }
+    
+                    // Close modal function
+                    function closeModal() {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+                </script>
+            </div>
+        </div>
+        <iframe src="https://maps.google.com/maps?q=Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed" class="contact-map" style="width: 100%;"></iframe>
+    </div>
+    
+
+    <div class="footer">
+        <div class="container">
+            <div class="column">
+                <h3>
+                    VISIT US 
+                </h3>
+                <p>
+                    <i class="fas fa-map-marker-alt">
+                    </i>
+                    523 Avenue, 5th Floor
+                    <br />
+                    Molali, TG 94041 Hyderabad
+                </p>
+                <p>
+                    <i class="fas fa-clock">
+                    </i>
+                    Mon-Fri: 08:00am - 11:00pm
+                    <br />
+
+            </div>
+            <div class="column">
+                <h3>
+                    QUICK LINKS
+                </h3>
+
+                <p>
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+                </p>
+
+
+
+                <p>
+                    <a href="products.html">
+                        Products
+                    </a>
+                </p>
+                <p>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </p>
+
+
+            </div>
+            <div class="column">
+                <h3>
+                    GET IN TOUCH
+                </h3>
+                <p>
+                    We are always ready to answer any questions you may have or help you select organic fruits.
+                </p>
+                <div class="buttons">
+                    <a class="shop-now" href="products.html">
+                        SHOP NOW
+                    </a>
+                    <a class="contact-us" href="contact.html">
+                        CONTACT US
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <!-- <div>
+          <img alt="Visa logo" height="20" src="https://storage.googleapis.com/a1aa/image/B2erIFeoLWpR8EbfCjscY5vpzZgUfsIgrIFQDWqIvD6LSP2OB.jpg" width="40"/>
+          <img alt="MasterCard logo" height="20" src="https://storage.googleapis.com/a1aa/image/Z6aEPr3ranrcH9OBGEkfOFwio3oJ117glRFInbVeKHVh0jtTA.jpg" width="40"/>
+          <img alt="PayPal logo" height="20" src="https://storage.googleapis.com/a1aa/image/0TUDxxajnyLzJhortmXX3n9Z0SclO0xClvMO1wJ9yRKI9Y7E.jpg" width="40"/>
+         </div> -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/YourPage" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.twitter.com/YourPage" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/YourPage" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://plus.google.com/YourPage" target="_blank" aria-label="Google Plus">
+                    <i class="fab fa-google-plus-g"></i>
+                </a>
+
+            </div>
+
+            <p>
+                © 2024 Eatsy. All rights reserved.
+                <a>
+                    Privacy Policy
+                </a>
+                .
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
