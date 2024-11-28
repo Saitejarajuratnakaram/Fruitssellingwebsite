@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Eatsy
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pIVbHvvj6jby6jdCkhglot1ywEoGq9U1WghRfJ0HNfB5cJdIJ8htdZBz6lBJ4slK6rLs0HtfP5e3g+0LxKkPiw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="h&f.css">
+    <link rel="stylesheet" href="details.css">
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-details {
+            flex: 1;
+            margin-right: 20px;
+            /* Space between product details and related products */
+        }
+
+        .related-products {
+            width: 300px;
+            /* Fixed width for related products */
+        }
+
+        .related-product {
+            display: flex;
+            margin-bottom: 10px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .related-product img {
+            height: 50px;
+            /* Fixed height for images */
+            width: 50px;
+            /* Fixed width for images */
+            margin-right: 10px;
+        }
+
+        .related-product h3 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .related-product .price {
+            color: #333;
+        }
+
+        .related-product {
+            display: block;
+            /* Make the anchor a block-level element */
+            text-decoration: none;
+            /* Remove underline */
+            color: inherit;
+            /* Inherit color from parent elements */
+            margin-bottom: 20px;
+            /* Space between products */
+        }
+
+        .related-product:hover {
+            background-color: #f0f0f0;
+            /* Optional: Add a hover effect */
+        }
+
+        /* Prevent blue color on links */
+        .related-product h3,
+        .related-product .price {
+            color: inherit;
+            /* Ensure h3 and price have the same color as normal text */
+        }
+
+        /* Optional: Add hover effect for text */
+        .related-product:hover h3,
+        .related-product:hover .price {
+            color: #333;
+            /* Change color on hover, adjust as needed */
+        }
+
+        .product-content {
+            display: flex;
+            /* Use flexbox for side-by-side layout */
+            align-items: center;
+            /* Center the items vertically */
+        }
+
+        .product-image {
+            width: 80px;
+            /* Adjust width as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-right: 20px;
+            /* Space between image and text */
+        }
+
+        .product-info {
+            flex-grow: 1;
+            /* Allow text area to grow */
+            margin-left: 45px;
+        }
+
+        .product-info h3,
+        .product-info .price {
+            color: inherit;
+            /* Ensure text has the same color as normal text */
+        }
+
+        /* Optional: Add hover effect for the product card */
+        .related-product:hover {
+            background-color: #f0f0f0;
+            /* Change background color on hover */
+        }
+
+        /* Optional: Change color on hover for the product title and price */
+        .related-product:hover h3,
+        .related-product:hover .price {
+            color: #333;
+            /* Adjust as needed */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <span>
+            Opening hours: Monday - Friday: 8AM-11PM
+        </span>
+
+    </div>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img alt="Logo" height="60" src="logo-removebg-preview.png" width="40" />
+            </a>
+            <div>
+                <h1>
+                    Eatsy
+                </h1>
+                <p>
+                    ONE STOP STORE
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-map-marker-alt"></i> 523 AVENUE, 5th FLOOR, MOULALI, TG 94041 HYDERABAD
+            </p>
+        </div>
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-phone"></i> +91 9876543210
+            </p>
+        </div>
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-envelope"></i> info@EATSY.COM
+            </p>
+        </div>
+    </div>
+
+    </div>
+    <div class="nav-bar">
+        <a href="index.html">
+            HOME
+        </a>
+        <a href="products.html">
+            PRODUCTS
+        </a>
+        <a href="about.html">
+            ABOUT US
+        </a>
+        <a href="faq.html">
+            FAQ
+        </a>
+        <a href="contact.html">
+            CONTACT US
+        </a>
+        <!-- <a href="">
+         SHOP NOW
+        </a> -->
+        <div class="header-icons">
+
+            <a href="cart.html" class="icon" aria-label="Shopping Cart">
+                <i class="fas fa-shopping-cart"></i>
+
+            </a>
+
+            <a href="profile.html" class="icon" aria-label="User Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+
+    </div>
+    <!-- header -->
+    <div class="container">
+        <div class="product-details">
+            <div style="display: flex;">
+                <div>
+                    <img alt="A pack of Girnar Desi Chai" src="p66.jpg" />
+                </div>
+                <div style="margin-left: 20px;">
+                    <h1>Girnar Desi Chai</h1>
+                    <p>Category: Tea</p>
+                    <div class="price">₹70</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>Girnar Desi Chai is a flavorful and aromatic blend that captures the essence of traditional
+                        Indian tea.</p>
+                    <p>Enjoy a refreshing cup that invigorates your senses and lifts your spirits.</p>
+
+                    <!-- Quantity buttons with functionality -->
+                    <div class="quantity">
+                        <button id="decrease-btn">-</button>
+                        <span id="quantity">1</span>
+                        <button id="increase-btn">+</button>
+                        <p> &nbsp; Packs</p>
+                    </div>
+                    <button class="CartBtn" id="addToCartBtn">
+                        <span class="IconContainer">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="white"
+                                class="cart">
+                                <path
+                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                </path>
+                            </svg>
+                        </span>
+                        <p class="text" style="color: aliceblue;">Add to Cart</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tabs for Description and Reviews -->
+            <div class="tabs">
+                <div class="tab active" id="descriptionTab">Description</div>
+                <div class="tab" id="reviewsTab">Reviews</div>
+            </div>
+            <div class="tab-content" id="tabContent">
+                <h2>Detailed Description</h2>
+                <p>Girnar Desi Chai offers a rich and authentic tea experience, perfect for tea lovers who appreciate
+                    traditional flavors.</p>
+
+                <h2>Nutritional Information</h2>
+                <ul>
+                    <li>Calories: 0 per cup (approx.)</li>
+                    <li>Carbohydrates: 0g</li>
+                    <li>Protein: 0g</li>
+                    <li>Fat: 0g</li>
+                    <li>Sodium: 0mg</li>
+                    <li>Fiber: 0g</li>
+                </ul>
+
+                <table>
+                    <tr>
+                        <th>Weight</th>
+                        <td>100g per pack</td>
+                    </tr>
+                    <tr>
+                        <th>Country of Origin</th>
+                        <td>India</td>
+                    </tr>
+                    <tr>
+                        <th>Quality</th>
+                        <td>Premium</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Related Products Section -->
+        <div class="related-products">
+            <h2>Related Products</h2>
+            <a href="p2.html" class="related-product">
+                <div class="product-content">
+                    <img src="p2.jpg" alt="Milk 2" class="product-image">
+                    <div class="product-info">
+                        <h3>Tomato</h3>
+                        <div class="price">₹60 / kg</div>
+                    </div>
+                </div>
+            </a>
+            <a href="p13.html" class="related-product">
+                <div class="product-content">
+                    <img src="p13.jpg" alt="Milk 3" class="product-image">
+                    <div class="product-info">
+                        <h3>Amul Taaza</h3>
+                        <div class="price">₹60 / kg</div>
+                    </div>
+                </div>
+            </a>
+            <a href="p25.html" class="related-product">
+                <div class="product-content">
+                    <img src="p25.jpg" alt="Milk 4" class="product-image">
+                    <div class="product-info">
+                        <h3>Lays Classic Salted Chips</h3>
+                        <div class="price">₹20</div>
+                    </div>
+                </div>
+            </a>
+            <a href="p37.html" class="related-product">
+                <div class="product-content">
+                    <img src="p37.jpg" alt="Milk 5" class="product-image">
+                    <div class="product-info">
+                        <h3>Maggi Noodles</h3>
+                        <div class="price">₹12</div>
+                    </div>
+                </div>
+            </a>
+            <a href="p49.html" class="related-product">
+                <div class="product-content">
+                    <img src="p49.jpg" alt="Milk 6" class="product-image">
+                    <div class="product-info">
+                        <h3>Cadbury Dairy Milk Silk</h3>
+                        <div class="price">₹80</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Modal for image zoom -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Large view of the apple">
+    </div>
+
+    <!-- footer -->
+
+    <div class="footer">
+        <div class="container">
+            <div class="column">
+                <h3>
+                    VISIT US 
+                </h3>
+                <p>
+                    <i class="fas fa-map-marker-alt">
+                    </i>
+                    523 Avenue, 5th Floor
+                    <br />
+                    Molali, TG 94041 Hyderabad
+                </p>
+                <p>
+                    <i class="fas fa-clock">
+                    </i>
+                    Mon-Fri: 08:00am - 11:00pm
+                    <br />
+
+            </div>
+            <div class="column">
+                <h3>
+                    QUICK LINKS
+                </h3>
+
+                <p>
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+                </p>
+
+
+
+                <p>
+                    <a href="products.html">
+                        Products
+                    </a>
+                </p>
+                <p>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </p>
+
+
+            </div>
+            <div class="column">
+                <h3>
+                    GET IN TOUCH
+                </h3>
+                <p>
+                    We are always ready to answer any questions you may have or help you select organic fruits.
+                </p>
+                <div class="buttons">
+                    <a class="shop-now" href="products.html">
+                        SHOP NOW
+                    </a>
+                    <a class="contact-us" href="contact.html">
+                        CONTACT US
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <!-- <div>
+          <img alt="Visa logo" height="20" src="https://storage.googleapis.com/a1aa/image/B2erIFeoLWpR8EbfCjscY5vpzZgUfsIgrIFQDWqIvD6LSP2OB.jpg" width="40"/>
+          <img alt="MasterCard logo" height="20" src="https://storage.googleapis.com/a1aa/image/Z6aEPr3ranrcH9OBGEkfOFwio3oJ117glRFInbVeKHVh0jtTA.jpg" width="40"/>
+          <img alt="PayPal logo" height="20" src="https://storage.googleapis.com/a1aa/image/0TUDxxajnyLzJhortmXX3n9Z0SclO0xClvMO1wJ9yRKI9Y7E.jpg" width="40"/>
+         </div> -->
+            <div class="social-icons">
+                <a href="https://www.facebook.com/YourPage" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.twitter.com/YourPage" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/YourPage" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://plus.google.com/YourPage" target="_blank" aria-label="Google Plus">
+                    <i class="fab fa-google-plus-g"></i>
+                </a>
+
+            </div>
+
+            <p>
+                © 2024 Eatsy. All rights reserved.
+                <a>
+                    Privacy Policy
+                </a>
+                .
+            </p>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Quantity logic
+        const decreaseBtn = document.getElementById('decrease-btn');
+        const increaseBtn = document.getElementById('increase-btn');
+        const quantitySpan = document.getElementById('quantity');
+        let quantity = 1;
+
+        decreaseBtn.addEventListener('click', () => {
+            if (quantity > 1) {
+                quantity--;
+                quantitySpan.innerText = quantity;
+            }
+        });
+
+        increaseBtn.addEventListener('click', () => {
+            quantity++;
+            quantitySpan.innerText = quantity;
+        });
+
+        // Add to Cart button functionality
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        addToCartBtn.addEventListener('click', () => {
+            const item = {
+                name: 'Girnar Desi Chai',
+                price: 70,
+                image: 'p66.jpg',
+                quantity: quantity,
+                measurementUnit: 'packs' // Change to 'litres' for liquid items
+            };
+
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            // Add a check for duplicates
+            const itemExists = cartItems.find(cartItem => cartItem.name === item.name);
+
+            if (itemExists) {
+                itemExists.quantity += quantity; // Update quantity if already exists
+            } else {
+                cartItems.push(item); // Add new item
+            }
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            alert(`Added ${quantity} ${item.measurementUnit} of Girnar Desi Chai to your cart.`);
+            displayCartItems(); // Call to update the cart display immediately
+        });
+
+        // Tab switching logic
+        const descriptionTab = document.getElementById('descriptionTab');
+        const reviewsTab = document.getElementById('reviewsTab');
+        const tabContent = document.getElementById('tabContent');
+
+        descriptionTab.addEventListener('click', () => {
+            tabContent.innerHTML = `
+                <h2>Detailed Description</h2>
+                <p>Girnar Desi Chai are a good source of fiber and vitamin C. Enjoy them fresh or use them in various recipes.</p>
+                <h2>Nutritional Information</h2>
+                <ul>
+                    <li>Calories: 52 per 100g</li>
+                    <li>Carbohydrates: 14g</li>
+                    <li>Fiber: 2.4g</li>
+                    <li>Sugars: 10g</li>
+                    <li>Protein: 0.3g</li>
+                    <li>Fat: 0.2g</li>
+                    <li>Vitamin C: 7% of the Daily Value</li>
+                </ul>
+                <table>
+                    <tr>
+                        <th>Weight</th>
+                        <td>1 kg</td>
+                    </tr>
+                    <tr>
+                        <th>Country of Origin</th>
+                        <td>Mountain Valley Orchards</td>
+                    </tr>
+                    <tr>
+                        <th>Quality</th>
+                        <td>Organic</td>
+                    </tr>
+                </table>
+            `;
+            descriptionTab.classList.add('active');
+            reviewsTab.classList.remove('active');
+        });
+
+        reviewsTab.addEventListener('click', () => {
+            tabContent.innerHTML = `
+                <div>
+                    <h2>Customer Reviews</h2>
+                    <p><strong>Sarah L.:</strong> Absolutely love these Girnar Desi Chai They taste amazing!</p>
+                    <p><strong>John D.:</strong> Great quality and freshness, will buy again!</p>
+                </div>
+            `;
+            reviewsTab.classList.add('active');
+            descriptionTab.classList.remove('active');
+        });
+
+        // Display cart items in a dedicated section
+        function displayCartItems() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartItemsContainer = document.getElementById('cartItemsContainer');
+
+            cartItemsContainer.innerHTML = ''; // Clear the container
+
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = '<h3>Your cart is empty.</h3>';
+                return;
+            }
+
+            cartItems.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" />
+                    <h4>${item.name}</h4>
+                    <p>Price: ₹${item.price} each</p>
+                    <p>Quantity: ${item.quantity} ${item.measurementUnit}</p>
+                `;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+        }
+
+        // Initial cart display
+        displayCartItems();
+    </script>
+</body>
+
+</html>
