@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatsy - Login</title>
+    <link rel="stylesheet" href="otpstyle.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pIVbHvvj6jby6jdCkhglot1ywEoGq9U1WghRfJ0HNfB5cJdIJ8htdZBz6lBJ4slK6rLs0HtfP5e3g+0LxKkPiw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+        body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.top-bar-unique {
+    background-color: #cd1010;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.top-bar-unique span {
+    font-size: 14px;
+}
+.top-bar-unique .cart-info {
+    display: flex;
+    align-items: center;
+}
+.top-bar-unique .cart-info i {
+    margin-right: 5px;
+}
+.header-section {
+    background-color: #FDC707;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+.header-section .brand-logo {
+    display: flex;
+    align-items: center;
+}
+.header-section .brand-logo img {
+    height: 63px;
+    margin-right: 10px;
+    width: 63px;
+}
+.header-section .brand-logo h1 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: bold;
+    color: #510707;
+}
+.header-section .brand-logo p {
+    margin: 0;
+    font-size: 12px;
+    color: #180b0b;
+}
+.contact-info-unique {
+    gap: 8px;
+    font-size: 1em;
+    color: #333;
+}
+
+.contact-info-unique p {
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.contact-info-unique i {
+    color: #cd1010;
+    font-size: 1.2em;
+}
+.nav-bar-unique {
+    background-color: #cd1010;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-left: 98px;
+    border-radius: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.nav-bar-unique a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 10px;
+    padding: 5px 10px;
+}
+.nav-bar-unique a:hover {
+    color: #f0c040;
+}
+
+.footer-unique {
+    background-color: #FDC707;
+    color: #0a0606;
+    padding: 40px 0;
+}
+.footer-unique .container-footer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.footer-unique h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #180f0f;
+}
+.footer-unique h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #cd1010;
+    margin-top: 10px;
+}
+.footer-unique p, .footer-unique a {
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.footer-unique a {
+    text-decoration: none;
+}
+.footer-unique .footer-column {
+    flex: 1;
+    padding: 0 20px;
+}
+.footer-unique .footer-column i {
+    margin-right: 10px;
+}
+.footer-unique .social-icons-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.footer-unique .social-icons-footer a {
+    color: #cc2d2d;
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.footer-unique .bottom-footer-bar {
+    text-align: center;
+    font-size: 14px;
+    color: #bfbfbf;
+}
+.footer-unique .bottom-footer-bar img {
+    margin: 0 5px;
+}
+.footer-unique .action-buttons {
+    display: flex;
+    gap: 10px;
+}
+.footer-unique .action-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+.footer-unique .action-buttons .shop-button {
+    background-color: #000000;
+}
+.footer-unique .action-buttons .contact-button {
+    background-color: #cd1010;
+}
+    </style>
+</head>
+
+<body>
+  <div class="top-bar-unique">
+   <span>
+    Opening hours: Monday - Friday: 8AM-11PM
+   </span>
+  </div>
+  <div class="header-section">
+    <div class="brand-logo">
+        <a href="index.html">
+            <img alt="Logo" height="60" src="logo-removebg-preview.png" width="40"/>
+        </a>
+        <div>
+            <h1>
+                Eatsy
+            </h1>
+            <p>
+                ONE STOP STORE
+            </p>
+        </div>
+    </div>
+    
+   <div class="contact-info-unique">
+    <p>
+        <i class="fas fa-map-marker-alt"></i> 523 AVENUE, 5th FLOOR, MOULALI, TG 94041 HYDERABAD
+    </p>
+    </div>
+    <div class="contact-info-unique">
+    <p>
+        <i class="fas fa-phone"></i> +91 9876543210
+    </p>
+    </div>
+    <div class="contact-info-unique">
+    <p>
+        <i class="fas fa-envelope"></i> info@EATSY.COM
+    </p>
+    </div>
+</div>
+
+  </div>
+  <div class="nav-bar-unique">
+   <a href="index.html">
+    HOME
+   </a>
+   <a href="product.html">
+    PRODUCTS
+   </a>
+   <a href="about.html">
+    ABOUT US
+   </a>
+   <a href="faq.html">
+    FAQ
+   </a>
+   <a href="contact.html">
+    CONTACT US
+   </a>
+   <div class="header-icons">
+    <a href="cart.html" class="icon-cart" aria-label="Shopping Cart">
+        <i class="fas fa-shopping-cart"></i>
+    </a>
+
+    <a href="profile.html" class="icon-user" aria-label="User Profile">
+        <i class="fas fa-user"></i>
+    </a>
+</div>
+  </div>
+
+  <br>
+  <br>
+
+
+  <div class="container login-container1">
+    <h2>Login to Your Account</h2>
+    <form id="loginForm">
+        <div class="form-group">
+            <input style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" type="email" id="loginEmail" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+            <input style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" type="password" id="loginPassword" placeholder="Password" required>
+        </div>
+        <button type="button" class="loginButton" onclick="loginUser()">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+</div>
+
+
+<br>
+<br>
+
+  <div class="footer-unique">
+    <div class="container-footer">
+     <div class="footer-column">
+      <h3>
+       VISIT US
+      </h3>
+      <p>
+       <i class="fas fa-map-marker-alt"></i>
+       523 Avenue, 5th Floor
+       <br/>
+       Molali, TG 94041 Hyderabad
+      </p>
+      <p>
+       <i class="fas fa-clock"></i>
+       Mon-Fri: 08:00am - 11:00pm
+       <br/>
+     </div>
+     <div class="footer-column">
+      <h3>
+       QUICK LINKS
+      </h3>
+      <p>
+       <a href="faq.html">FAQ</a>
+      </p>
+      <p>
+       <a href="products.html">Products</a>
+      </p>
+      <p>
+       <a href="about.html">About Us</a>
+      </p>
+     </div>
+     <div class="footer-column">
+      <h3>
+       GET IN TOUCH
+      </h3>
+      <p>
+       We are always ready to answer any questions you may have or help you select organic fruits.
+      </p>
+      <div class="action-buttons">
+       <a class="shop-button" href="products.html">
+        SHOP NOW
+       </a>
+       <a class="contact-button" href="contact.html">
+        CONTACT US
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="bottom-footer-bar">
+     <div class="social-icons-footer">
+        <a href="https://www.facebook.com/YourPage" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.twitter.com/YourPage" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/YourPage" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://plus.google.com/YourPage" target="_blank" aria-label="Google Plus">
+            <i class="fab fa-google-plus-g"></i>
+        </a>
+    </div>
+     <p>
+      © 2024 Eatsy. All rights reserved.
+      <a href="#">Privacy Policy</a>.
+     </p>
+    </div>
+   </div>
+
+   <script src="login.js"></script>
+
+</body>
+</html>
